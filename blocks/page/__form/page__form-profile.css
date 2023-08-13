@@ -1,0 +1,12 @@
+.page__form-profile {
+    width: 26.9rem;
+    height: 21rem;
+    border-radius: 0.63rem;
+    background-color: white;
+    position: fixed;
+    top: 12.19rem;
+    right: 33.75%;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+}

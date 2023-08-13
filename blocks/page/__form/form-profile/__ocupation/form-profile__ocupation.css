@@ -1,0 +1,14 @@
+.form-profile__ocupation {
+    color: black;
+    font-family: inter;
+    font-size: .875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 22.375rem;
+    height: 1.7038rem;
+    border: none;
+    border-bottom: solid 1px #c4c4c4;
+    margin-bottom: 2.6875rem;
+    align-self: center;
+}

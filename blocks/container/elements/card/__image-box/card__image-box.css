@@ -1,0 +1,6 @@
+.card__image-box {
+    display: grid;
+    height: 17.625rem;
+    grid-template-columns: 15.5625rem 2.0625rem;
+    grid-template-rows: 1.125rem 15.25rem;
+}

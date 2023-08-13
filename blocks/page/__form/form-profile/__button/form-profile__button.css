@@ -1,0 +1,12 @@
+.form-profile__button {
+    width: 22.375rem;
+    height: 3.1344rem;
+    border-radius: .125rem;
+    background-color: #000;
+    align-self: center;
+    border: none;
+}
+
+.form-profile__button:hover{
+    background-color: gray;
+}

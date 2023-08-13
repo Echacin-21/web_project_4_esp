@@ -1,0 +1,14 @@
+.profile__button-add {
+    padding: 0;
+    margin: 2.1875rem 0 2.1875rem 0;
+    border: none;
+    width: 9.375rem;
+    height: 3.125rem;
+    background-image: url(../../../../image/Add-Button.svg);
+    background-size: cover;
+    background-color: transparent;
+}
+
+.profile__button-add:hover{
+    background-image: url(../../../../image/Add-Button-gray.svg);
+}

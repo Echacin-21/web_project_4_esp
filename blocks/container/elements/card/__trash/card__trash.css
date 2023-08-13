@@ -1,0 +1,14 @@
+.card__trash {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    justify-self: flex-start;
+    background-image: url(../../../../../image/Trash.svg);
+    width: 1.125rem;
+    height: 1.1875rem;
+    border: none;
+    background-color: transparent;
+}
+
+.card__trash:hover {
+    background-image: url(../../../../../image/Trashgray.svg);
+}

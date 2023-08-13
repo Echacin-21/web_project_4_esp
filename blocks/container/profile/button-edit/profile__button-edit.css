@@ -1,0 +1,14 @@
+.profile__button-edit {
+    width: 1.5rem;
+    height: 1.5rem;
+    align-self: flex-end;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    background-image: url(../../../../image/Edit-Button.svg);
+    border: none;
+    background-color: transparent;
+}
+
+.profile__button-edit:hover{
+    background-image: url(../../../../image/Edit-B-gray.svg);
+}

@@ -1,0 +1,11 @@
+.elements {
+    /* border: red 1px solid; */
+    width: 882px;
+    height: auto;
+    min-height: 46rem;
+    margin: 0 0 1rem 0;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.125rem;
+}

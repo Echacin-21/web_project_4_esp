@@ -1,0 +1,17 @@
+.page__button-close{
+    border: none;
+    background-image: url(../../../image/Close_Icon.svg);
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: fixed;
+    top: 9.25rem;
+    left: 67%;
+    z-index: 2;
+    display: none;
+    background-color: transparent;
+}
+
+.page__button-close:hover{
+    background-image: url(../../../image/Close_Icon-gray.svg);
+}

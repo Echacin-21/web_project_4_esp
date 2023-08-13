@@ -1,0 +1,9 @@
+.profile__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2.6875rem 1.125rem;
+    gap: 1rem;
+    margin: 1.125rem 10.5rem 1.5625rem 1.875rem;
+    width: 25.875rem;
+    height: 4.8125rem;
+}

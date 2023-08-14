@@ -2,15 +2,18 @@
 
 ### Descripción general
 
-* Figma
-* Imágenes
+Se realiza proyecto en base al diseño y solicitudes presentadas. 
 
-**Figma**
+El proyecto consta de una pagina con al menos 6 tarjetas las y mediante Js se puede modificar algunos aspectos de la pagina, 
+como por ejemplo abrir o cerrar popups, editar nombre, descripción del autor y eliminar tarjetas. 
 
-* [Enlace al proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
+Pasos para uso de la pagina: 
+- En el botón de edicición al lado del nombre el usuario (Figura de lapiz) al hacer click sale un popup que permite 
+editar dicho nombre y descripción, al dar click en el botón de "guardar" los datos se actualizaran en la pagina y el popup se cerrara. También podemos cerrarlo al dar click en la "X" que aparece en la 
+esquina superior derecha. 
+- Tambien contamos con un boton "+" el cual nos permitira mas adelante agregar tarjetas. 
+-Cada tarjeta tiene un boton con figura de basurero, la cual al dar click eliminara la tarjeta.
+- Y por último tenemos un corazón en la esquina inferir derecha de la tarjera, la cual cambiara de color negro al hacerle click. 
 
-**Imágenes**
-
-A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
-
-¡Esperamos que te diviertas con JavaScript!
+Para este proyecto se implementarón conocimientos antes vistos de CSS y HTML, teniendo una pagina responsiva y con contenedores flexibles. 
+También se implemento JavaScript la cual mediante el uso de DOM logramos ejecutar las funicones antes mencionadas. 

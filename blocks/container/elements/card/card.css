@@ -1,5 +1,6 @@
 .card {
     width: 17.6rem;
+    min-width: 17.6rem;
     height: 22.5625rem;
     margin: 0;
     display: flex;
@@ -8,3 +9,4 @@
     overflow: hidden;
     background-color: white;
 }
+

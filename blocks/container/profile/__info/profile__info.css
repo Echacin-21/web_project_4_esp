@@ -1,9 +1,21 @@
 .profile__info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 2.6875rem 1.125rem;
-    gap: 1rem;
-    margin: 1.125rem 10.5rem 1.5625rem 1.875rem;
-    width: 25.875rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2.6875rem 1.125rem;
+  gap: 1rem;
+  margin: 1.125rem 10.5rem 1.5625rem 1.875rem;
+  width: 25.875rem;
+  height: 4.8125rem;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__info {
+    margin: 0;
+    width: 18.75rem;
     height: 4.8125rem;
+    grid-template-rows: 1.5rem 1.125rem;
+    grid-template-columns: 250px 18px;
+    justify-self: center;
+    align-self: center;
+  }
 }

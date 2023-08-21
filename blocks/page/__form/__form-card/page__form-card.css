@@ -5,8 +5,15 @@
     background-color: white;
     position: fixed;
     top: 12.19rem;
-    right: 33.75%;
+    right: center;
     display: none;
     flex-direction: column;
     z-index: 2;
 }
+
+@media screen and (max-width: 450px) {
+    .page__form-card {
+      /* border: red 1px solid; */
+      width: 300px;
+    }
+  }

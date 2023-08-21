@@ -1,3 +1,4 @@
+@import url(./vendor/normalize.css);
 @import url(./blocks/page/page.css);
 @import url(./blocks/page/__form/page__form-profile.css);
 @import url(./blocks/page/__form/form-profile/__button/form-profile__button.css);
@@ -32,3 +33,4 @@
 @import url(./blocks/container/elements/card/__text/card__text.css);
 @import url(./blocks/container/elements/card/__trash/card__trash.css);
 @import url(./blocks/responsive/responsive.css);
+@import url(./blocks/footer/footer.css);

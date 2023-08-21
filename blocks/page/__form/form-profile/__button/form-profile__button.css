@@ -10,3 +10,10 @@
 .form-profile__button:hover{
     background-color: gray;
 }
+
+@media screen and (max-width: 450px) {
+    .form-profile__button {
+      /* border: red 1px solid; */
+      width: 250px;
+    }
+  }

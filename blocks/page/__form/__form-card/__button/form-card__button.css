@@ -10,3 +10,10 @@
 .form-card__button:hover{
     background-color: gray;
 }
+
+@media screen and (max-width: 450px) {
+    .form-card__button {
+      /* border: red 1px solid; */
+      width: 250px;
+    }
+  }

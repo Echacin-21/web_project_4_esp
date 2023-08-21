@@ -1,7 +1,27 @@
 .profile {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2.5rem;
-    width: 55.125rem;
-    height: 7.5rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2.5rem;
+  width: 55.125rem;
+  height: 7.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    width: 100%;
+    height: 10.625rem;
+    display: grid;
+    grid-template-columns: 7.5rem auto;
+    grid-template-rows: 7.5rem 3.125rem;
+  }
+}
+
+@media screen and (max-width: 620px){
+    .profile{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

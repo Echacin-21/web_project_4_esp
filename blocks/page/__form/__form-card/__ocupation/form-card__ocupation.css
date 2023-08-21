@@ -1,6 +1,6 @@
 .form-card__ocupation {
     color: black;
-    font-family: inter;
+    font-family: "Inter", Arial, sans-serif;
     font-size: .875rem;
     font-style: normal;
     font-weight: 400;
@@ -12,3 +12,10 @@
     margin-bottom: 2.6875rem;
     align-self: center;
 }
+
+@media screen and (max-width: 450px) {
+    .form-card__ocupation {
+      /* border: red 1px solid; */
+      width: 250px;
+    }
+  }

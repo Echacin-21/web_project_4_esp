@@ -8,9 +8,10 @@
     top: 9.25rem;
     left: 67%;
     z-index: 2;
-    display: none;
+    /* display: none; */
     background-color: transparent;
 }
+
 
 .page__button-close:hover{
     background-image: url(../../../image/Close_Icon-gray.svg);

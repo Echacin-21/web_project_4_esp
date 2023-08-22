@@ -6,7 +6,7 @@
     position: fixed;
     top: 12.19rem;
     right: center;
-    display: none;
+    /* display: none; */
     flex-direction: column;
     z-index: 2;
 }

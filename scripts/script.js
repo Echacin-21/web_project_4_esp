@@ -5,53 +5,70 @@ let button = container.querySelector(".profile__button-edit");
 let form = page.querySelector(".page__form-profile");
 let addPlace = page.querySelector(".page__form-card");
 let element = container.querySelector(".elements");
-let card = document.querySelector(".card");
-let box = card.querySelector(".image-box");
-let btntrash = element.querySelector(".card__trash");
+let cards = document.querySelectorAll(".card");
+let primeracard = cards[0];
+let segundacard = cards[1];
+let terceracard = cards[2];
+let cuartacard = cards[3];
+let quintacard = cards[4];
+let sextacard = cards[5];
+// let box = card.querySelector(".image-box");
+let btntrash = element.querySelectorAll(".card__trash");
 let btnadd = container.querySelector(".profile__button-add");
-let btnheart = element.querySelector(".button__heart");
-let btnheart2 = element.querySelector(".heart2");
-let btnheart3 = element.querySelector(".heart3");
-let btnheart4 = element.querySelector(".heart4");
-let btnheart5 = element.querySelector(".heart5");
-let btnheart6 = element.querySelector(".heart6");
-let card2 = element.querySelector(".card2");
-let btntrash2 = element.querySelector(".trash2");
-let card3 = element.querySelector(".card3");
-let btntrash3 = element.querySelector(".trash3");
-let card4 = element.querySelector(".card4");
-let btntrash4 = element.querySelector(".trash4");
-let card5 = element.querySelector(".card5");
-let btntrash5 = element.querySelector(".trash5");
-let card6 = element.querySelector(".card6");
-let btntrash6 = element.querySelector(".trash6");
+
+let btnheart = element.querySelectorAll(".button__heart");
+let primerbtnheart = btnheart[0];
+let segundobtnheart = btnheart[1];
+let tercerbtnheart = btnheart[2];
+let cuartobtnheart = btnheart[3];
+let quintobtnheart = btnheart[4];
+let sextobtnheart = btnheart[5];
+
+let primerbtntrash = btntrash[0];
+let segundobtntrash = btntrash[1];
+let tercerbtntrash = btntrash[2];
+let cuartobtntrash = btntrash[3];
+let quintobtntrash = btntrash[4];
+let sextobtntrash = btntrash[5];
+
 let profile = container.querySelector(".profile__info");
 let btnrefresh = document.querySelector(".form-profile__button");
-let y = 0;
-let y2 = 0;
-let y3 = 0;
-let y4 = 0;
-let y5 = 0;
-let y6 = 0;
+
+let a = 0;
+let b = 0;
+let c = 0;
+let d = 0;
+let e = 0;
+let f = 0;
+
+form.classList.add("display-none");
+addPlace.classList.add("display-none");
+btnClose.classList.add("display-none");
 
 function onForm() {
-  console.log("click");
-  form.setAttribute("style", "display: flex");
-  container.setAttribute("style", "filter:brightness(0.4);");
-  btnClose.setAttribute("style", "display: block");
+  form.classList.remove("display-none");
+  btnClose.classList.remove("display-none");
+  form.classList.add("display-flex");
+  btnClose.classList.add("display-block"); 
+  container.classList.add("container_filter");
 }
 
 function offForm() {
-  form.setAttribute("style", "display: none");
-  addPlace.setAttribute("style", "display: none");
-  container.setAttribute("style", "filter:brightness(1);");
-  btnClose.setAttribute("style", "display: none");
+  form.classList.remove("display-flex");
+  addPlace.classList.remove("display-flex");
+  btnClose.classList.remove("display-block");
+  container.classList.remove("container_filter");
+  form.classList.add("display-none");
+  addPlace.classList.add("display-none")
+  btnClose.classList.add("display-none");
 }
 
 function newplace() {
-  addPlace.setAttribute("style", "display: flex");
-  btnClose.setAttribute("style", "display: block");
-  container.setAttribute("style", "filter:brightness(0.4);");
+  addPlace.classList.remove("display-none");
+  btnClose.classList.remove("display-none");
+  addPlace.classList.add("display-flex");
+  btnClose.classList.add("display-block");
+  container.classList.add("container_filter");
 }
 
 function editprofile() {
@@ -59,116 +76,111 @@ function editprofile() {
   let description = document.querySelector(".profile__description");
   let profileocupation = document.querySelector(".form-profile__ocupation");
   let editname = document.querySelector(".form-profile__name");
-  name.innerHTML = editname.value;
-  description.innerHTML = profileocupation.value;
+  name.textContent = editname.value;
+  description.textContent = profileocupation.value;
   editname.value = "Jacques Cousteau";
   profileocupation.value = "Explorador";
   offForm();
 }
 
 function deletecard() {
-  console.log("click 2");
-  element.removeChild(card);
+  element.removeChild(primeracard);
 }
 
 function deletecard2() {
-  console.log("click 2");
-  element.removeChild(card2);
+  element.removeChild(segundacard);
 }
 
 function deletecard3() {
-  console.log("click 2");
-  element.removeChild(card3);
+  element.removeChild(terceracard);
 }
 
 function deletecard4() {
-  console.log("click 2");
-  element.removeChild(card4);
+  element.removeChild(cuartacard);
 }
 function deletecard5() {
-  console.log("click 2");
-  element.removeChild(card5);
+  element.removeChild(quintacard);
 }
 function deletecard6() {
-  console.log("click 2");
-  element.removeChild(card6);
+  element.removeChild(sextacard);
 }
 
 function heartclick() {
-  if (y == 0) {
-    btnheart.setAttribute(
+  if (a == 0) {
+    primerbtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
     );
-    y = 1;
-  } else if ((y = 1)) {
-    btnheart.removeAttribute("style");
-    y = 0;
+    a = 1;
+  } else {
+    primerbtnheart.removeAttribute("style");
+    a = 0;
   }
 }
 
+
 function heartclick2() {
-  if (y2 == 0) {
-    btnheart2.setAttribute(
+  if (b == 0) {
+    segundobtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
-    );
-    y2 = 1;
-  } else if ((y2 = 1)) {
-    btnheart2.removeAttribute("style");
-    y2 = 0;
+      );
+    b = 1;
+  } else {
+    segundobtnheart.removeAttribute("style");
+    b = 0;
   }
 }
 
 function heartclick3() {
-  if (y3 == 0) {
-    btnheart3.setAttribute(
+  if (c == 0) {
+    tercerbtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
     );
-    y3 = 1;
-  } else if ((y3 = 1)) {
-    btnheart3.removeAttribute("style");
-    y3 = 0;
+    c = 1;
+  } else {
+    tercerbtnheart.removeAttribute("style");
+    c = 0;
   }
 }
 
 function heartclick4() {
-  if (y4 == 0) {
-    btnheart4.setAttribute(
+  if (d == 0) {
+    cuartobtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
     );
-    y4 = 1;
-  } else if ((y4 = 1)) {
-    btnheart4.removeAttribute("style");
-    y4 = 0;
+    d = 1;
+  } else {
+    cuartobtnheart.removeAttribute("style");
+    d = 0;
   }
 }
 
 function heartclick5() {
-  if (y5 == 0) {
-    btnheart5.setAttribute(
+  if (e == 0) {
+    quintobtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
     );
-    y5 = 1;
-  } else if ((y5 = 1)) {
-    btnheart5.removeAttribute("style");
-    y5 = 0;
+    e = 1;
+  } else {
+    quintobtnheart.removeAttribute("style");
+    e = 0;
   }
 }
 
 function heartclick6() {
-  if (y6 == 0) {
-    btnheart6.setAttribute(
+  if (f == 0) {
+    sextobtnheart.setAttribute(
       "style",
       "background-image: url(./image/Vectorheart-black.svg)"
     );
-    y6 = 1;
-  } else if ((y6 = 1)) {
-    btnheart6.removeAttribute("style");
-    y6 = 0;
+    f = 1;
+  } else  {
+    sextobtnheart.removeAttribute("style");
+    f = 0;
   }
 }
 
@@ -176,18 +188,18 @@ button.addEventListener("click", onForm);
 btnadd.addEventListener("click", newplace);
 btnClose.addEventListener("click", offForm);
 
-btntrash.addEventListener("click", deletecard);
-btntrash2.addEventListener("click", deletecard2);
-btntrash3.addEventListener("click", deletecard3);
-btntrash3.addEventListener("click", deletecard3);
-btntrash4.addEventListener("click", deletecard4);
-btntrash5.addEventListener("click", deletecard5);
-btntrash6.addEventListener("click", deletecard6);
-btnheart.addEventListener("click", heartclick);
-btnheart2.addEventListener("click", heartclick2);
-btnheart3.addEventListener("click", heartclick3);
-btnheart4.addEventListener("click", heartclick4);
-btnheart5.addEventListener("click", heartclick5);
-btnheart6.addEventListener("click", heartclick6);
+primerbtntrash.addEventListener("click", deletecard);
+segundobtntrash.addEventListener("click", deletecard2);
+tercerbtntrash.addEventListener("click", deletecard3);
+cuartobtntrash.addEventListener("click", deletecard4);
+quintobtntrash.addEventListener("click", deletecard5);
+sextobtntrash.addEventListener("click", deletecard6);
+
+primerbtnheart.addEventListener("click", heartclick);
+segundobtnheart.addEventListener("click", heartclick2);
+tercerbtnheart.addEventListener("click", heartclick3);
+cuartobtnheart.addEventListener("click", heartclick4);
+quintobtnheart.addEventListener("click", heartclick5);
+sextobtnheart.addEventListener("click", heartclick6);
 
 btnrefresh.addEventListener("click", editprofile);

@@ -1,19 +1,20 @@
-.form-card__button {
-    width: 22.375rem;
-    height: 3.1344rem;
-    border-radius: .125rem;
-    background-color: #000;
-    align-self: center;
-    border: none;
+.page__form-card-button {
+  width: 22.375rem;
+  height: 3.1344rem;
+  border-radius: 0.125rem;
+  background-color: #000;
+  align-self: center;
+  border: none;
 }
 
-.form-card__button:hover{
-    background-color: gray;
+.page__form-card-button:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 450px) {
-    .form-card__button {
-      /* border: red 1px solid; */
-      width: 250px;
-    }
+  .page__form-card-button {
+    /* border: red 1px solid; */
+    width: 250px;
   }
+}

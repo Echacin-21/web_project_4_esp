@@ -1,15 +1,14 @@
-.button__text {
-    color: white;
-    width: 6.8125rem;
-    height: 1.125rem;
-    margin: .8538rem 7.75rem 0  7.75rem;
-    font-family: "Inter", Arial, sans-serif;
+.page__form-profile-text {
+  color: white;
+  width: 6.8125rem;
+  height: 1.125rem;
+  margin: 0.8538rem 7.75rem 0 7.75rem;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 @media screen and (max-width: 450px) {
-    .button__text {
-      /* border: red 1px solid; */
-      width: 250px;
-      margin: 0;
-    }
+  .page__form-profile-text {
+    width: 250px;
+    margin: 0;
   }
+}

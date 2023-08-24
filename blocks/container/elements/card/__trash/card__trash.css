@@ -11,4 +11,5 @@
 
 .card__trash:hover {
     background-image: url(../../../../../image/Trashgray.svg);
+    cursor: pointer;
 }

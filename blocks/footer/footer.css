@@ -1,13 +1,13 @@
-.footer{
-    font-size: 1rem;
-    font-family: "Inter", Arial, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    color: white;
+.footer {
+  font-size: 1rem;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: white;
 }
 
-@media screen and (max-width: 900px){
-    .footer{
-        text-align: center;
-    }
+@media screen and (max-width: 900px) {
+  .footer {
+    text-align: center;
+  }
 }

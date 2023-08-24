@@ -1,4 +1,4 @@
-.button__heart {
+.card__heart {
     background-image: url(../../../../../image/Vectorheart.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -10,6 +10,7 @@
     border: none;
 }
 
-.button__heart:hover{
+.card__heart:hover{
     background-image: url(../../../../../image/Vectorheart-gray.svg);
+    cursor: pointer;
 }

@@ -1,21 +1,21 @@
-.form-card__ocupation {
-    color: black;
-    font-family: "Inter", Arial, sans-serif;
-    font-size: .875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 22.375rem;
-    height: 1.7038rem;
-    border: none;
-    border-bottom: solid 1px #c4c4c4;
-    margin-bottom: 2.6875rem;
-    align-self: center;
+.page__form-card-ocupation {
+  color: black;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 22.375rem;
+  height: 1.7038rem;
+  border: none;
+  border-bottom: solid 1px #c4c4c4;
+  margin-bottom: 2.6875rem;
+  align-self: center;
 }
 
 @media screen and (max-width: 450px) {
-    .form-card__ocupation {
-      /* border: red 1px solid; */
-      width: 250px;
-    }
+  .page__form-card-ocupation {
+    /* border: red 1px solid; */
+    width: 250px;
   }
+}

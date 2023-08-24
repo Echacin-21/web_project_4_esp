@@ -3,12 +3,12 @@
   padding: 0;
 }
 
-.container_filter{
-  filter:brightness(0.4);
+.container_filter {
+  filter: brightness(0.4);
 }
 
-@media screen and (max-width: 900px){
-  .container{
-      width: 76%;
+@media screen and (max-width: 900px) {
+  .container {
+    width: 76%;
   }
 }

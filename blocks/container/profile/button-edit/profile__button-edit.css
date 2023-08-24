@@ -11,6 +11,7 @@
 
 .profile__button-edit:hover {
   background-image: url(../../../../image/Edit-B-gray.svg);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {

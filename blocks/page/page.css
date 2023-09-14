@@ -11,7 +11,7 @@
 }
 
 .page {
-  padding-top: 2.8125rem;
+  /* padding-top: 2.8125rem; */
   background-color: #000000;
   height: 100%;
   width: 100%;
@@ -30,4 +30,49 @@
 
 .display-flex {
   display: flex;
+}
+
+.page__img-content{
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: auto;
+  z-index: 4;
+}
+
+.page__img{
+  height: 80%;
+
+}
+
+.page__img-name{
+  color: white;
+  font-family: "Inter, Arial, sans-serif";
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-top: 0.63rem;
+  align-self: flex-start;
+}
+
+.page__button {
+  border: none;
+  background-image: url(../../image/Close_Icon.svg);
+  background-size: cover;
+  width: 2.5rem;
+  height: 2.5rem;
+  /* position: fixed;
+  top: 9.25rem;
+  left: 67%;
+  z-index: 2; */
+  /* display: none; */
+  background-color: transparent;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
+
+.page__button:hover {
+  background-image: url(../../image/Close_Icon-gray.svg);
+  cursor: pointer;
 }

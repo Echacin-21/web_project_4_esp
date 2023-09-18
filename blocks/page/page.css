@@ -30,6 +30,7 @@
 
 .display-flex {
   display: flex;
+  
 }
 
 .page__img-content{
@@ -49,7 +50,7 @@
 
 .page__img-name{
   color: white;
-  font-family: "Inter, Arial, sans-serif";
+  font-family: "Inter", Arial, sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   margin-top: 0.63rem;

@@ -1,3 +1,30 @@
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+  }
+]; 
+
 const container = document.querySelector(".container");
 const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
@@ -6,12 +33,10 @@ const button = container.querySelector(".profile__button-edit");
 const addCard = document.querySelector(".page__form-card-button");
 const form = page.querySelector(".page__form-profile");
 const addPlace = page.querySelector(".page__form-card");
-const element = container.querySelector(".elements");
 const cards = document.querySelectorAll(".card");
 const btnTrash = document.querySelectorAll(".card__trash");
 const btnAdd = container.querySelector(".profile__button-add");
 const btnHeart = element.querySelectorAll(".card__heart");
-const profile = container.querySelector(".profile__info");
 const btnRefresh = document.querySelector(".page__form-profile-button");
 let btnImg = document.querySelectorAll(".card__image");
 const imgContent = document.querySelector(".page__img-content");
@@ -22,6 +47,92 @@ addPlace.classList.add("display-none");
 btnClose.classList.add("display-none");
 imgContent.classList.add("display-none");
 
+const cardContainer = document.querySelector(".card-container");
+
+  initialCards.forEach((date) => {
+    const cardTemplate = document.querySelector("#template").content;
+    const cardClone = cardTemplate.querySelector(".card").cloneNode(true);
+    cardClone.querySelector(".card__image").src = date.link;
+    cardClone.querySelector(".card__image").alt = date.name;
+    cardClone.querySelector(".card__text").textContent = date.name;
+
+    element.append(cardClone);
+  });
+
+  //Esta función añade nuevos datos al Array, extraidos desde el form para añadir cards.
+  function newCard(evt) {
+    evt.preventDefault();
+    const imgTittle = document.querySelector(".page__form-card-name");
+    const imgUrl = document.querySelector(".page__form-card-ocupation");
+  
+    const datesArray = {
+      name: imgTittle.value,
+      link: imgUrl.value,
+      like: false 
+    };
+    
+    initialCards.unshift(datesArray);
+    offForm()
+    imgTittle.value = "";
+    imgUrl.value = "";
+    loadCard();
+    
+    };
+  
+  // Esta función sigue a la newCard() para tomar los datos alamecenados en el Array desde la posición 0 y añade una nueva carta al stio.
+  function loadCard (){
+    const dateCard = initialCards[0];
+    const cardTemplate = document.querySelector("#template").content;
+    const cardClone = cardTemplate.querySelector(".card").cloneNode(true);
+    cardClone.querySelector(".card__image").src = dateCard.link;
+    cardClone.querySelector(".card__text").textContent = dateCard.name;
+    cardClone.querySelector(".card__image").alt = dateCard.name;
+    element.prepend(cardClone);
+  }
+
+let btnActive = false;
+
+// Función de eventos que permite borrar, dar like y disparar popUp de imagen.
+document.querySelector(".elements").addEventListener("click", function (event) {
+  const target = event.target;
+  //Sección que controla el like en cada carta
+  if (target.classList.contains("card__heart")) {
+    if (!btnActive) {
+      event.target.setAttribute(
+        "style",
+        "background-image: url(./image/Vectorheart-black.svg)"
+      );
+
+      btnActive = true;
+    } else {
+      event.target.removeAttribute("style");
+      btnActive = false;
+    }
+    console.log("Botón de like clicado");
+  }
+// Sección que controla el trash que borra cada carta.
+  if (target.classList.contains("card__trash")) {
+    target.closest(".card").remove();
+  }
+//Sección que controla el popUp de las imágenes.
+  if(target.classList.contains("card__image")){
+    container.classList.add("container_filter");
+    const imgContent = document.querySelector(".page__img-content");
+    const imgNameElement = event.target.closest(".card").querySelector(".card__text");
+    const srcImg = target.getAttribute("src");
+    const img = document.querySelector(".page__img");
+    img.src = srcImg;
+
+    const imgName = imgNameElement.textContent;
+    const nameElement = document.querySelector(".page__img-name");
+    nameElement.textContent = imgName;
+
+    imgContent.classList.add("display-flex");
+    console.log(target);
+  }
+});
+
+//Sección que controla el popUp de los formularios
 function onForm() {
   form.classList.remove("display-none");
   btnClose.classList.remove("display-none");
@@ -30,6 +141,7 @@ function onForm() {
   container.classList.add("container_filter");
 }
 
+//Función que cierra cualquier elemento del sitio web.
 function offForm() {
   form.classList.remove("display-flex");
   addPlace.classList.remove("display-flex");
@@ -42,6 +154,7 @@ function offForm() {
   imgContent.classList.add("display-none");
 }
 
+//Función que control la apertura de form para añadir una carta.
 function newplace() {
   addPlace.classList.remove("display-none");
   btnClose.classList.remove("display-none");
@@ -50,6 +163,7 @@ function newplace() {
   container.classList.add("container_filter");
 }
 
+// Función que controla la edición de datos del perfil.
 function editprofile(evt) {
   evt.preventDefault();
   const name = document.querySelector(".profile__name");
@@ -65,113 +179,9 @@ function editprofile(evt) {
   offForm();
 }
 
-btnTrash.forEach((boton, index) => {
-  boton.addEventListener("click", () => {
-    if (cards[index]) {
-      cards[index].remove();
-    }
-  });
-});
-
-btnHeart.forEach((boton, index) => {
-  let btnActive = false;
-  boton.addEventListener("click", () => {
-    if (!btnActive) {
-      btnHeart[index].setAttribute(
-        "style",
-        "background-image: url(./image/Vectorheart-black.svg)"
-      );
-      btnActive = true;
-    } else {
-      btnHeart[index].removeAttribute("style");
-      btnActive = false;
-    }
-  });
-});
-
-function newCard(evt) {
-  evt.preventDefault();
-  const imgTittle = document.querySelector(".page__form-card-name");
-  const imgUrl = document.querySelector(".page__form-card-ocupation");
-
-  const cardTemplate = document.querySelector("#template").content;
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-
-  cardElement.querySelector(".card__image").src = imgUrl.value;
-  cardElement.querySelector(".card__text").textContent = imgTittle.value;
-  cardElement
-    .querySelector(".card__trash")
-    .addEventListener("click", function (evt) {
-      const cardContainer = cardElement.parentElement;
-      cardContainer.removeChild(cardElement);
-    });
-  let btnActive = false;
-  cardElement
-    .querySelector(".card__heart")
-    .addEventListener("click", function (evt) {
-      if (!btnActive) {
-        evt.target.setAttribute(
-          "style",
-          "background-image: url(./image/Vectorheart-black.svg)"
-        );
-
-        btnActive = true;
-      } else {
-        evt.target.removeAttribute("style");
-        btnActive = false;
-      }
-    });
-
-  cardElement.querySelector(".card__image").addEventListener("click", function (evt) {
-    container.classList.add("container_filter");
-    console.log("pulsaste la imagen");
-    const cardImage = document.querySelectorAll(".card__image");
-    const imgContent = document.querySelector(".page__img-content");
-    const imgNameElement = document.querySelectorAll(".card__text");
-    const srcImg = cardImage.getAttribute("src");
-    const img = document.querySelector(".page__img");
-    img.src = srcImg;
-
-      // const imgName = imgNameElement[index].textContent;
-      // const nameElement = document.querySelector(".page__img-name");
-      // nameElement.textContent = imgName;
-
-    imgContent.classList.add("display-flex");
-  });
-
-  elements.append(cardElement);
-
-  imgTittle.value = "";
-  imgUrl.value = "";
-
-  offForm();
-}
-
-// Abrir popup de imagen.
-btnImg.forEach((imagen, index) => {
-  imagen.addEventListener("click", () => {
-    container.classList.add("container_filter");
-    console.log("pulsaste la imagen");
-    const imgContent = document.querySelector(".page__img-content");
-    const imgNameElement = document.querySelectorAll(".card__text");
-    const srcImg = btnImg[index].getAttribute("src");
-    const img = document.querySelector(".page__img");
-    img.src = srcImg;
-
-    const imgName = imgNameElement[index].textContent;
-    const nameElement = document.querySelector(".page__img-name");
-    nameElement.textContent = imgName;
-
-    imgContent.classList.add("display-flex");
-  });
-});
-
 button.addEventListener("click", onForm);
 btnAdd.addEventListener("click", newplace);
 btnClose.addEventListener("click", offForm);
 btnRefresh.addEventListener("click", editprofile);
 addCard.addEventListener("click", newCard);
 btnCloseImg.addEventListener("click", offForm);
-
-//   openImage(btnImg.src);
-// });

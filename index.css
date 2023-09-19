@@ -2,7 +2,7 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/page/__form/page__form-profile.css);
 @import url(./blocks/page/__form/form-profile/__button/form-profile__button.css);
-@import url(./blocks/page/__form/form-profile/__button/__text/);
+@import url(./blocks/page/__form/form-profile/__button/__text/button__text.css);
 @import url(./blocks/page/__form/form-profile/__name/form-profile__name.css);
 @import url(./blocks/page/__form/form-profile/__ocupation/form-profile__ocupation.css);
 @import url(./blocks/page/__form/form-profile/__title/form-profile__title.css);

@@ -1,3 +1,4 @@
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -38,7 +39,7 @@ const btnTrash = document.querySelectorAll(".card__trash");
 const btnAdd = container.querySelector(".profile__button-add");
 const btnHeart = element.querySelectorAll(".card__heart");
 const btnRefresh = document.querySelector(".page__form-profile-button");
-let btnImg = document.querySelectorAll(".card__image");
+const btnImg = document.querySelectorAll(".card__image");
 const imgContent = document.querySelector(".page__img-content");
 const btnCloseImg = document.querySelector(".page__button");
 
@@ -108,7 +109,6 @@ document.querySelector(".elements").addEventListener("click", function (event) {
       event.target.removeAttribute("style");
       btnActive = false;
     }
-    console.log("Botón de like clicado");
   }
 // Sección que controla el trash que borra cada carta.
   if (target.classList.contains("card__trash")) {
@@ -128,7 +128,6 @@ document.querySelector(".elements").addEventListener("click", function (event) {
     nameElement.textContent = imgName;
 
     imgContent.classList.add("display-flex");
-    console.log(target);
   }
 });
 
@@ -185,3 +184,4 @@ btnClose.addEventListener("click", offForm);
 btnRefresh.addEventListener("click", editprofile);
 addCard.addEventListener("click", newCard);
 btnCloseImg.addEventListener("click", offForm);
+

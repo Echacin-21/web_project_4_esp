@@ -39,12 +39,13 @@
   flex-direction: column;
   position: fixed;
   height: 100%;
-  width: auto;
+  max-width: 90%;
   z-index: 4;
 }
 
 .page__img{
   height: 80%;
+  width: 100%;
 
 }
 

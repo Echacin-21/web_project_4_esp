@@ -24,7 +24,7 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
-]; 
+];
 
 const container = document.querySelector(".container");
 const elements = container.querySelector(".elements");

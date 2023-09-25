@@ -17,16 +17,18 @@
       <h3 class="page__img-name"></h3>
     </div>
     <button class="page__button-close"></button>
-    <form class="page__form-profile">
+    <form name="profile" class="page__form-profile" novalidate>
       <h2 class="page__form-profile-title">Datos de perfil</h2>
       <input
         type="text"
+        name="nameDate"
         placeholder="Nombre"
         class="page__form-profile-name"
         value="Jacques Cousteau"
       />
       <input
         type="text"
+        name="descriptionDate"
         placeholder="Opcupación ejemplo:'Explorador'"
         class="page__form-profile-ocupation"
         value="Explorador"
@@ -35,11 +37,12 @@
         <span class="page__form-card-text">Guardar</span>
       </button>
     </form>
-    <form class="page__form-card">
+    <form name="addCard" class="page__form-card" novalidate>
       <h2 class="page__form-card-title">Nuevo lugar</h2>
-      <input type="text" placeholder="Título" class="page__form-card-name" />
+      <input type="text" name="cardName" placeholder="Título" class="page__form-card-name" />
       <input
-        type="text"
+        type="url"
+        name="cardUrl"
         placeholder="Enlace de imagen"
         class="page__form-card-ocupation"
       />

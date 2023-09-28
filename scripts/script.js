@@ -26,6 +26,10 @@ const initialCards = [
   }
 ];
 
+// import { enableValidation } from "./validate";
+
+// console.log(enableValidation);
+
 const container = document.querySelector(".container");
 const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
@@ -37,7 +41,6 @@ const addPlace = page.querySelector(".page__form-content_card");
 const cards = document.querySelectorAll(".card");
 const btnTrash = document.querySelectorAll(".card__trash");
 const btnAdd = container.querySelector(".profile__button-add");
-const btnHeart = element.querySelectorAll(".card__heart");
 const btnRefresh = document.querySelector(".page__form-profile-button");
 const btnImg = document.querySelectorAll(".card__image");
 const imgContent = document.querySelector(".page__img-content");
@@ -45,12 +48,12 @@ const btnCloseImg = document.querySelector(".page__button");
 const formProfile = page.querySelector(".page__form-content");
 const profileName = formProfile.querySelector(".form__input");
 const formError = formProfile.querySelector(`.${profileName.id}-error`);
-const clickContent = document.querySelectorAll(".page__form-content_click")
+const clickContent = document.querySelectorAll(".page__form-content_click");
+
 
 
 formProfile.classList.add("display-none");
 addPlace.classList.add("display-none");
-// btnClose.classList.add("display-none");
 imgContent.classList.add("display-none");
 
 const cardContainer = document.querySelector(".card-container");
@@ -96,23 +99,22 @@ const cardContainer = document.querySelector(".card-container");
     element.prepend(cardClone);
   }
 
-let btnActive = false;
 
 // Función de eventos que permite borrar, dar like y disparar popUp de imagen.
 document.querySelector(".elements").addEventListener("click", function (event) {
   const target = event.target;
   //Sección que controla el like en cada carta
   if (target.classList.contains("card__heart")) {
-    if (!btnActive) {
+    if (target.textContent === "") {
       event.target.setAttribute(
         "style",
         "background-image: url(./image/Vectorheart-black.svg)"
       );
-
-      btnActive = true;
-    } else {
+      target.textContent = "1";
+    } 
+    else {
       event.target.removeAttribute("style");
-      btnActive = false;
+      target.textContent = "";
     }
   }
 // Sección que controla el trash que borra cada carta.
@@ -207,21 +209,17 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
-  console.log(hasInvalidInput(inputList));
   if(hasInvalidInput(inputList)){
-    console.log(buttonElement);
     buttonElement.classList.add("button_inactive");
 
   } else {
-    console.log(buttonElement);
     buttonElement.classList.remove("button_inactive");
   }
 };
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".form__submit");
-  console.log(buttonElement);
+  const buttonElement = formElement.querySelector(".form__submit")
 
   toggleButtonState(inputList, buttonElement);
 
@@ -262,7 +260,6 @@ btnCloseImg.addEventListener("click", offForm);
 
 //Evento controla el cierre de elementos al presionar la tecla escape
 page.addEventListener("keydown", function (evt) {
-  console.log(evt);
   if(evt.key === "Escape"){
     offForm();
   }

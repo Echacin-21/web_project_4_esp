@@ -1,4 +1,3 @@
-
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -26,17 +25,12 @@ const initialCards = [
   }
 ];
 
-// import { enableValidation } from "./validate";
-
-// console.log(enableValidation);
-
 const container = document.querySelector(".container");
-const elements = container.querySelector(".elements");
+// const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
 const btnClose = page.querySelectorAll(".page__button-close");
 const button = container.querySelector(".profile__button-edit");
 const addCard = document.querySelector(".page__form-card-button");
-
 const addPlace = page.querySelector(".page__form-content_card");
 const cards = document.querySelectorAll(".card");
 const btnTrash = document.querySelectorAll(".card__trash");
@@ -47,7 +41,6 @@ const imgContent = document.querySelector(".page__img-content");
 const btnCloseImg = document.querySelector(".page__button");
 const formProfile = page.querySelector(".page__form-content");
 const profileName = formProfile.querySelector(".form__input");
-const formError = formProfile.querySelector(`.${profileName.id}-error`);
 const clickContent = document.querySelectorAll(".page__form-content_click");
 
 
@@ -58,14 +51,17 @@ imgContent.classList.add("display-none");
 
 const cardContainer = document.querySelector(".card-container");
 
-  initialCards.forEach((date) => {
+  function consolideCard (date){
     const cardTemplate = document.querySelector("#template").content;
     const cardClone = cardTemplate.querySelector(".card").cloneNode(true);
     cardClone.querySelector(".card__image").src = date.link;
-    cardClone.querySelector(".card__image").alt = date.name;
     cardClone.querySelector(".card__text").textContent = date.name;
+    cardClone.querySelector(".card__image").alt = date.name;
+    element.prepend(cardClone);
+  }
 
-    element.append(cardClone);
+  initialCards.forEach((date) => {
+    consolideCard(date);
   });
 
   //Esta función añade nuevos datos al Array, extraidos desde el form para añadir cards.
@@ -91,12 +87,7 @@ const cardContainer = document.querySelector(".card-container");
   // Esta función sigue a la newCard() para tomar los datos alamecenados en el Array desde la posición 0 y añade una nueva carta al stio.
   function loadCard (){
     const dateCard = initialCards[0];
-    const cardTemplate = document.querySelector("#template").content;
-    const cardClone = cardTemplate.querySelector(".card").cloneNode(true);
-    cardClone.querySelector(".card__image").src = dateCard.link;
-    cardClone.querySelector(".card__text").textContent = dateCard.name;
-    cardClone.querySelector(".card__image").alt = dateCard.name;
-    element.prepend(cardClone);
+    consolideCard(dateCard); 
   }
 
 
@@ -178,75 +169,6 @@ function editprofile(evt) {
   profileocupation.value = "Explorador";
   offForm();
 }
-
-const showError = (formElement, element, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${element.id}-error`);
-  element.classList.add("form__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-}
-
-const hidenError = (formElement, element) => {
-  const errorElement = formElement.querySelector(`.${element.id}-error`);
-  element.classList.remove("form__input_type_error");
-  errorElement.classList.remove("form__inpur-error_active");
-  errorElement.textContent = "";
-}
-
-const checkInputValidity = (formElement, inputElement) => {
-  if (!inputElement.validity.valid){
-    showError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hidenError(formElement, inputElement);
-  }
-  
-}
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid
-  });
-};
-
-const toggleButtonState = (inputList, buttonElement) => {
-  if(hasInvalidInput(inputList)){
-    buttonElement.classList.add("button_inactive");
-
-  } else {
-    buttonElement.classList.remove("button_inactive");
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".form__submit")
-
-  toggleButtonState(inputList, buttonElement);
-
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function() {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
-    });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
-
-    fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset);
-    });
-  });
-};
-
-enableValidation();
 
 // Eventos de click
 button.addEventListener("click", onForm);

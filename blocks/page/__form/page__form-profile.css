@@ -15,5 +15,13 @@
   .page__form-profile {
     /* border: red 1px solid; */
     width: 300px;
+    display: flex;
+    align-items: center;
   }
+
+  .page__fieldset{
+    width: 300px;
+  }
+
+  
 }

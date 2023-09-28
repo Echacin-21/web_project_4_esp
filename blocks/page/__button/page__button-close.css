@@ -13,7 +13,14 @@
   background-color: transparent;
 }
 
+
 .page__button-close:hover {
   background-image: url(../../../image/Close_Icon-gray.svg);
   cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .page__button-close {
+    margin: 0 0 1rem  15.625rem;
+  }
 }

@@ -16,5 +16,7 @@
   .page__form-card {
     /* border: red 1px solid; */
     width: 300px;
+    display: flex;
+    align-items: center;
   }
 }

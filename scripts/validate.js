@@ -1,6 +1,6 @@
 const objValidation = {
-  formSelector: ".popup__form",
-  inputSelector: ".form__input",
+  formSelector: ".page__popup-form",
+  inputSelector: ".page__form-input",
   submitButtonSelector: ".form__submit",
   inactiveButtonClass: "button_inactive",
   inputErrorClass: "form__input_type_error",

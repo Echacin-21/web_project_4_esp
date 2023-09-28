@@ -11,74 +11,73 @@
     <header class="header">
       <img class="header__logo" src="./image/logologo3.png" alt="Logo Aorund" />
     </header>
-    <div class="page__img-content page__form-content_click">
+    <div class="page__img-content page__form-content-click">
       <div class="prueba">
         <button class="page__button"></button>
         <img src="." alt="No hay imgen añadida" class="page__img" />
         <h3 class="page__img-name"></h3>
       </div>
     </div>
-    <!-- <button class="page__button-close"></button> -->
-    <div class="page__form-content page__form-content_click">
+    <div class="page__form-content page__form-content-click">
       <button class="page__button-close"></button>
-      <form name="profile" class="page__form-profile popup__form" novalidate>
-        <fieldset class="page__fieldset form__set">
+      <form name="profile" class="page__form-profile page__popup-form" novalidate>
+        <fieldset class="page__fieldset">
           <h2 class="page__form-profile-title">Datos de perfil</h2>
           <input
             type="text"
             name="nameDate"
-            id="profile_input"
+            id="page__profile-input"
             placeholder="Nombre"
-            class="page__form-profile-name form__input"
+            class="page__form-profile-name page__form-input"
             value="Jacques Cousteau"
             minlength="2"
             maxlength="40"
             required
           />
-          <span class="profile_input-error form__input-error"></span>
+          <span class="page__profile-input-error page__form-inputError"></span>
   
           <input
             type="text"
             name="descriptionDate"
             placeholder="Opcupación ejemplo:'Explorador'"
-            class="page__form-profile-ocupation form__input"
-            id="description_input"
+            class="page__form-profile-ocupation page__form-input"
+            id="Page__description-input"
             value="Explorador"
             minlength="2"
             maxlength="200"
             required
           />
-          <span class="description_input-error form__input-error"></span>
-          <button class="page__form-profile-button form__submit">Guardar</button>
+          <span class="page__description-input-error page__form-inputError"></span>
+          <button class="page__form-profile-button page__form-input">Guardar</button>
         </fieldset>
       </form>
     </div>
-    <div class="page__form-content_card page__form-content_click">
+    <div class="page__form-content-card page__form-content-click">
       <button class="page__button-close"></button>
-      <form name="addCard" class="page__form-card popup__form" novalidate>
-        <fieldset class="page__fieldset form__set">
+      <form name="addCard" class="page__form-card page__popup-form" novalidate>
+        <fieldset class="page__fieldset">
           <h2 class="page__form-card-title">Nuevo lugar</h2>
           <input
             type="text"
             name="title"
             placeholder="Título"
-            class="page__form-card-name form__input"
-            id="card_input"
+            class="page__form-card-name page__form-inputError"
+            id="page__card-input"
             minlength="2"
             maxlength="30"
             required
           />
-          <span class="card_input-error form__input-error"></span>
+          <span class="page__card-input-error page__form-inputError"></span>
           <input
             type="url"
             name="cardUrl"
-            id="url_input"
+            id="page__url-input"
             placeholder="Enlace de imagen"
-            class="page__form-card-ocupation form__input"
+            class="page__form-card-ocupation page__form-inputError"
             required
           />
-          <span class="url_input-error form__input-error"></span>
-          <button class="page__form-card-button form__submit">Cargar</button>
+          <span class="page__url-input-error page__form-inputError"></span>
+          <button class="page__form-card-button page__form-inputError">Cargar</button>
         </fieldset>
       </form>
     </div>

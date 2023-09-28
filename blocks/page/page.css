@@ -105,7 +105,7 @@
  
 }
 
-.form__input-error{
+.page__form-inputError{
   width: 22.375rem;
   font-family: "Inter", Arial, sans-serif;
   font-size: .75rem;
@@ -157,3 +157,4 @@
   width: 100%;
   z-index: 2;
 }
+

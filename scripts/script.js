@@ -24,14 +24,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
-
+page__form-content_click
 const container = document.querySelector(".container");
 // const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
 const btnClose = page.querySelectorAll(".page__button-close");
 const button = container.querySelector(".profile__button-edit");
 const addCard = document.querySelector(".page__form-card-button");
-const addPlace = page.querySelector(".page__form-content_card");
+const addPlace = page.querySelector(".page__form-content-card");
 const cards = document.querySelectorAll(".card");
 const btnTrash = document.querySelectorAll(".card__trash");
 const btnAdd = container.querySelector(".profile__button-add");
@@ -41,7 +41,7 @@ const imgContent = document.querySelector(".page__img-content");
 const btnCloseImg = document.querySelector(".page__button");
 const formProfile = page.querySelector(".page__form-content");
 const profileName = formProfile.querySelector(".form__input");
-const clickContent = document.querySelectorAll(".page__form-content_click");
+const clickContent = document.querySelectorAll(".page__form-content-click");
 
 
 

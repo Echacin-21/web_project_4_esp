@@ -39,6 +39,17 @@
   flex-direction: column;
   position: fixed;
   height: 100%;
+  width: 100%;
+  z-index: 4;
+}
+
+.prueba{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
   max-width: 90%;
   z-index: 4;
 }
@@ -77,4 +88,72 @@
 .page__button:hover {
   background-image: url(../../image/Close_Icon-gray.svg);
   cursor: pointer;
+}
+
+.form__input_type_error {
+  border-bottom: solid 1px red !important;
+
+}
+
+.form__input-error_active{
+  color: red;
+  opacity: 1 !important;
+}
+
+.profile_input-error{
+  opacity: 0;
+ 
+}
+
+.form__input-error{
+  width: 22.375rem;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 1.9375rem;
+  align-self: center;
+  margin: .4375rem auto .4375rem auto;
+}
+.margin-botton{
+  margin-bottom: 3.175rem;
+}
+
+.button_inactive{
+  background-color: white !important;
+  color: gray !important;
+  border: 1px solid black !important;
+  pointer-events: none;
+}
+
+.page__fieldset{
+  border: none;
+  width: 26.9rem;
+  height: 21rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page__form-content{
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.page__form-content_card{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
 }

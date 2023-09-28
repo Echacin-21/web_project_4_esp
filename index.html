@@ -11,45 +11,78 @@
     <header class="header">
       <img class="header__logo" src="./image/logologo3.png" alt="Logo Aorund" />
     </header>
-    <div class="page__img-content">
-      <button class="page__button"></button>
-      <img src="." alt="No hay imgen añadida" class="page__img">
-      <h3 class="page__img-name"></h3>
+    <div class="page__img-content page__form-content_click">
+      <div class="prueba">
+        <button class="page__button"></button>
+        <img src="." alt="No hay imgen añadida" class="page__img" />
+        <h3 class="page__img-name"></h3>
+      </div>
     </div>
-    <button class="page__button-close"></button>
-    <form name="profile" class="page__form-profile" novalidate>
-      <h2 class="page__form-profile-title">Datos de perfil</h2>
-      <input
-        type="text"
-        name="nameDate"
-        placeholder="Nombre"
-        class="page__form-profile-name"
-        value="Jacques Cousteau"
-      />
-      <input
-        type="text"
-        name="descriptionDate"
-        placeholder="Opcupación ejemplo:'Explorador'"
-        class="page__form-profile-ocupation"
-        value="Explorador"
-      />
-      <button class="page__form-profile-button">
-        <span class="page__form-card-text">Guardar</span>
-      </button>
-    </form>
-    <form name="addCard" class="page__form-card" novalidate>
-      <h2 class="page__form-card-title">Nuevo lugar</h2>
-      <input type="text" name="cardName" placeholder="Título" class="page__form-card-name" />
-      <input
-        type="url"
-        name="cardUrl"
-        placeholder="Enlace de imagen"
-        class="page__form-card-ocupation"
-      />
-      <button class="page__form-card-button">
-        <span class="page__form-card-text">Cargar</span>
-      </button>
-    </form>
+    <!-- <button class="page__button-close"></button> -->
+    <div class="page__form-content page__form-content_click">
+      <button class="page__button-close"></button>
+      <form name="profile" class="page__form-profile form" novalidate>
+        <fieldset class="page__fieldset form__set">
+          <h2 class="page__form-profile-title">Datos de perfil</h2>
+          <input
+            type="text"
+            name="nameDate"
+            id="profile_input"
+            placeholder="Nombre"
+            class="page__form-profile-name form__input"
+            value="Jacques Cousteau"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="profile_input-error form__input-error"></span>
+  
+          <input
+            type="text"
+            name="descriptionDate"
+            placeholder="Opcupación ejemplo:'Explorador'"
+            class="page__form-profile-ocupation form__input"
+            id="description_input"
+            value="Explorador"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span class="description_input-error form__input-error"></span>
+          <button class="page__form-profile-button form__submit">Guardar</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="page__form-content_card page__form-content_click">
+      <button class="page__button-close"></button>
+      <form name="addCard" class="page__form-card form" novalidate>
+        <fieldset class="page__fieldset form__set">
+          <h2 class="page__form-card-title">Nuevo lugar</h2>
+          <input
+            type="text"
+            name="title"
+            placeholder="Título"
+            class="page__form-card-name form__input"
+            id="card_input"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <span class="card_input-error form__input-error"></span>
+          <input
+            type="url"
+            name="cardUrl"
+            id="url_input"
+            placeholder="Enlace de imagen"
+            class="page__form-card-ocupation form__input"
+            required
+          />
+          <span class="url_input-error form__input-error"></span>
+          <button class="page__form-card-button form__submit">Cargar</button>
+        </fieldset>
+      </form>
+    </div>
+    
     <main class="container">
       <section class="profile">
         <img
@@ -64,9 +97,7 @@
         </div>
         <button class="profile__button-add"></button>
       </section>
-      <section class="elements" id="element">
-
-      </section>
+      <section class="elements" id="element"></section>
     </main>
     <footer>
       <h2 class="footer">© Eduardo Chacin, Web development student</h2>
@@ -74,11 +105,7 @@
     <template id="template">
       <div class="card">
         <div class="card__image-box">
-          <img
-            class="card__image"
-            src="."
-            alt="No hay imgen añadida"
-          />
+          <img class="card__image" src="." alt="No hay imgen añadida" />
           <button class="card__trash"></button>
         </div>
         <div class="card__content">
@@ -87,7 +114,7 @@
         </div>
       </div>
     </template>
-    
+
     <script src="./scripts/script.js"></script>
   </body>
 </html>

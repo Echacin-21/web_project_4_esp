@@ -29,11 +29,11 @@ const initialCards = [
 const container = document.querySelector(".container");
 const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
-const btnClose = page.querySelector(".page__button-close");
+const btnClose = page.querySelectorAll(".page__button-close");
 const button = container.querySelector(".profile__button-edit");
 const addCard = document.querySelector(".page__form-card-button");
-const form = page.querySelector(".page__form-profile");
-const addPlace = page.querySelector(".page__form-card");
+
+const addPlace = page.querySelector(".page__form-content_card");
 const cards = document.querySelectorAll(".card");
 const btnTrash = document.querySelectorAll(".card__trash");
 const btnAdd = container.querySelector(".profile__button-add");
@@ -42,10 +42,15 @@ const btnRefresh = document.querySelector(".page__form-profile-button");
 const btnImg = document.querySelectorAll(".card__image");
 const imgContent = document.querySelector(".page__img-content");
 const btnCloseImg = document.querySelector(".page__button");
+const formProfile = page.querySelector(".page__form-content");
+const profileName = formProfile.querySelector(".form__input");
+const formError = formProfile.querySelector(`.${profileName.id}-error`);
+const clickContent = document.querySelectorAll(".page__form-content_click")
 
-form.classList.add("display-none");
+
+formProfile.classList.add("display-none");
 addPlace.classList.add("display-none");
-btnClose.classList.add("display-none");
+// btnClose.classList.add("display-none");
 imgContent.classList.add("display-none");
 
 const cardContainer = document.querySelector(".card-container");
@@ -133,32 +138,26 @@ document.querySelector(".elements").addEventListener("click", function (event) {
 
 //Sección que controla el popUp de los formularios
 function onForm() {
-  form.classList.remove("display-none");
-  btnClose.classList.remove("display-none");
-  form.classList.add("display-flex");
-  btnClose.classList.add("display-block");
+  formProfile.classList.remove("display-none");
+  formProfile.classList.add("display-flex");
   container.classList.add("container_filter");
 }
 
 //Función que cierra cualquier elemento del sitio web.
 function offForm() {
-  form.classList.remove("display-flex");
+  formProfile.classList.remove("display-flex");
   addPlace.classList.remove("display-flex");
-  btnClose.classList.remove("display-block");
   container.classList.remove("container_filter");
   imgContent.classList.remove("display-flex");
-  form.classList.add("display-none");
+  formProfile.classList.add("display-none");
   addPlace.classList.add("display-none");
-  btnClose.classList.add("display-none");
   imgContent.classList.add("display-none");
 }
 
 //Función que control la apertura de form para añadir una carta.
 function newplace() {
   addPlace.classList.remove("display-none");
-  btnClose.classList.remove("display-none");
   addPlace.classList.add("display-flex");
-  btnClose.classList.add("display-block");
   container.classList.add("container_filter");
 }
 
@@ -178,10 +177,103 @@ function editprofile(evt) {
   offForm();
 }
 
+const showError = (formElement, element, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${element.id}-error`);
+  element.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
+}
+
+const hidenError = (formElement, element) => {
+  const errorElement = formElement.querySelector(`.${element.id}-error`);
+  element.classList.remove("form__input_type_error");
+  errorElement.classList.remove("form__inpur-error_active");
+  errorElement.textContent = "";
+}
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid){
+    showError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hidenError(formElement, inputElement);
+  }
+  
+}
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  console.log(hasInvalidInput(inputList));
+  if(hasInvalidInput(inputList)){
+    console.log(buttonElement);
+    buttonElement.classList.add("button_inactive");
+
+  } else {
+    console.log(buttonElement);
+    buttonElement.classList.remove("button_inactive");
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".form__submit");
+  console.log(buttonElement);
+
+  toggleButtonState(inputList, buttonElement);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function() {
+      checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+
+    fieldsetList.forEach((fieldset) => {
+      setEventListeners(fieldset);
+    });
+  });
+};
+
+enableValidation();
+
+// Eventos de click
 button.addEventListener("click", onForm);
 btnAdd.addEventListener("click", newplace);
-btnClose.addEventListener("click", offForm);
+btnClose.forEach((evt) => {
+    evt.addEventListener("click", offForm);
+  });
 btnRefresh.addEventListener("click", editprofile);
 addCard.addEventListener("click", newCard);
 btnCloseImg.addEventListener("click", offForm);
+
+//Evento controla el cierre de elementos al presionar la tecla escape
+page.addEventListener("keydown", function (evt) {
+  console.log(evt);
+  if(evt.key === "Escape"){
+    offForm();
+  }
+});
+
+//Evento controla el cierre de elementos al hacer "click" fuera de ellos
+clickContent.forEach((evt) => {
+  evt.addEventListener("click", function (evt) {
+    if(evt.target === formProfile || evt.target === addPlace || evt.target === imgContent){
+      offForm();
+    }
+  });
+})
 

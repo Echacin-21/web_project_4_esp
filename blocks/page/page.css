@@ -10,6 +10,25 @@
   font-weight: bold;
 }
 
+@keyframes popupOn{
+  0% {
+    opacity:  0;
+}
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes popupOff {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .page {
   /* padding-top: 2.8125rem; */
   background-color: #000000;

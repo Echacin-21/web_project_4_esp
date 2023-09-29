@@ -24,7 +24,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
   }
 ];
-
 const container = document.querySelector(".container");
 // const elements = container.querySelector(".elements");
 const page = document.querySelector(".page");
@@ -97,14 +96,11 @@ document.querySelector(".elements").addEventListener("click", function (event) {
   //Sección que controla el like en cada carta
   if (target.classList.contains("card__heart")) {
     if (target.textContent === "") {
-      event.target.setAttribute(
-        "style",
-        "background-image: url(./image/Vectorheart-black.svg)"
-      );
-      target.textContent = "1";
+      event.target.classList.add("page__buttonHrt-active");
+      target.textContent = "activo";
     } 
     else {
-      event.target.removeAttribute("style");
+      event.target.classList.remove("page__buttonHrt-active");
       target.textContent = "";
     }
   }
@@ -126,6 +122,7 @@ document.querySelector(".elements").addEventListener("click", function (event) {
     nameElement.textContent = imgName;
 
     imgContent.classList.add("display-flex");
+    clickOffPopupON();
   }
 });
 
@@ -134,6 +131,7 @@ function onForm() {
   formProfile.classList.remove("display-none");
   formProfile.classList.add("display-flex");
   container.classList.add("container_filter");
+  clickOffPopupON();
 }
 
 //Función que cierra cualquier elemento del sitio web.
@@ -145,6 +143,7 @@ function offForm() {
   formProfile.classList.add("display-none");
   addPlace.classList.add("display-none");
   imgContent.classList.add("display-none");
+  clickOffPopupOff();
 }
 
 //Función que control la apertura de form para añadir una carta.
@@ -152,6 +151,7 @@ function newplace() {
   addPlace.classList.remove("display-none");
   addPlace.classList.add("display-flex");
   container.classList.add("container_filter");
+  clickOffPopupON();
 }
 
 // Función que controla la edición de datos del perfil.
@@ -188,11 +188,21 @@ page.addEventListener("keydown", function (evt) {
 });
 
 //Evento controla el cierre de elementos al hacer "click" fuera de ellos
-clickContent.forEach((evt) => {
-  evt.addEventListener("click", function (evt) {
-    if(evt.target === formProfile || evt.target === addPlace || evt.target === imgContent){
-      offForm();
-    }
+function  clickOffPopupON() {
+  clickContent.forEach((evt) => {
+    evt.addEventListener("click", function (evt) {
+      if(evt.target === formProfile || evt.target === addPlace || evt.target === imgContent){
+        offForm();
+      }
+    });
   });
-})
+}
+
+//funcion que eleminia el evento de "click" fuera de los elementos
+function  clickOffPopupOff() {
+  clickContent.forEach((evt) => {
+    evt.removeEventListener("click", clickContent);
+  })
+}
+
 

@@ -130,6 +130,7 @@ document.querySelector(".elements").addEventListener("click", function (event) {
 function onForm() {
   formProfile.classList.remove("display-none");
   formProfile.classList.add("display-flex");
+  formProfile.style.animation = "active 1 linear";
   container.classList.add("container_filter");
   clickOffPopupON();
 }

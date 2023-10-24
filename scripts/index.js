@@ -1,9 +1,8 @@
 import { initialCards } from "./array.js";
-
-console.log(initialCards);
+import {Card} from "./cards.js";
 
 const container = document.querySelector(".container");
-// const elements = container.querySelector(".elements");
+const element = container.querySelector(".elements");
 const page = document.querySelector(".page");
 const btnClose = page.querySelectorAll(".page__button-close");
 const button = container.querySelector(".profile__button-edit");
@@ -35,8 +34,11 @@ function consolideCard(date) {
   element.prepend(cardClone);
 }
 
-initialCards.forEach((date) => {
-  consolideCard(date);
+initialCards.forEach((data) => {
+  const cards = new Card(data, "#template");
+
+  const initialCards = cards._generateCard();
+  // element.append(initialCards);
 });
 
 //Esta función añade nuevos datos al Array, extraidos desde el form para añadir cards.
@@ -48,7 +50,6 @@ function newCard(evt) {
   const datesArray = {
     name: imgTittle.value,
     link: imgUrl.value,
-    like: false,
   };
 
   initialCards.unshift(datesArray);
@@ -61,7 +62,8 @@ function newCard(evt) {
 // Esta función sigue a la newCard() para tomar los datos alamecenados en el Array desde la posición 0 y añade una nueva carta al stio.
 function loadCard() {
   const dateCard = initialCards[0];
-  consolideCard(dateCard);
+  const newCard = new Card(dateCard, "#template");
+  const addCard = newCard._generateCard();
 }
 
 // Función de eventos que permite borrar, dar like y disparar popUp de imagen.

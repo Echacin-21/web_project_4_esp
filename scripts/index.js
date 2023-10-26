@@ -1,5 +1,6 @@
 import { initialCards } from "./array.js";
 import {Card} from "./cards.js";
+import { Validations, objValidation } from "./validate.js";
 
 const container = document.querySelector(".container");
 const element = container.querySelector(".elements");
@@ -25,20 +26,11 @@ imgContent.classList.add("display-none");
 
 const cardContainer = document.querySelector(".card-container");
 
-function consolideCard(date) {
-  const cardTemplate = document.querySelector("#template").content;
-  const cardClone = cardTemplate.querySelector(".card").cloneNode(true);
-  cardClone.querySelector(".card__image").src = date.link;
-  cardClone.querySelector(".card__text").textContent = date.name;
-  cardClone.querySelector(".card__image").alt = date.name;
-  element.prepend(cardClone);
-}
-
 initialCards.forEach((data) => {
   const cards = new Card(data, "#template");
 
-  const initialCards = cards._generateCard();
-  // element.append(initialCards);
+  const initialCards = cards.generateCard();
+  const cardsEvent = cards._EventListeners();
 });
 
 //Esta función añade nuevos datos al Array, extraidos desde el form para añadir cards.
@@ -63,45 +55,11 @@ function newCard(evt) {
 function loadCard() {
   const dateCard = initialCards[0];
   const newCard = new Card(dateCard, "#template");
-  const addCard = newCard._generateCard();
+  const addCard = newCard.generateCard();
+  const cardEventListener = newCard._EventListeners();
 }
 
-// Función de eventos que permite borrar, dar like y disparar popUp de imagen.
-document.querySelector(".elements").addEventListener("click", function (event) {
-  const target = event.target;
-  //Sección que controla el like en cada carta
-  if (target.classList.contains("card__heart")) {
-    if (target.textContent === "") {
-      event.target.classList.add("page__buttonHrt-active");
-      target.textContent = "activo";
-    } else {
-      event.target.classList.remove("page__buttonHrt-active");
-      target.textContent = "";
-    }
-  }
-  // Sección que controla el trash que borra cada carta.
-  if (target.classList.contains("card__trash")) {
-    target.closest(".card").remove();
-  }
-  //Sección que controla el popUp de las imágenes.
-  if (target.classList.contains("card__image")) {
-    container.classList.add("container_filter");
-    const imgContent = document.querySelector(".page__img-content");
-    const imgNameElement = event.target
-      .closest(".card")
-      .querySelector(".card__text");
-    const srcImg = target.getAttribute("src");
-    const img = document.querySelector(".page__img");
-    img.src = srcImg;
 
-    const imgName = imgNameElement.textContent;
-    const nameElement = document.querySelector(".page__img-name");
-    nameElement.textContent = imgName;
-    imgContent.style.animation = "popupOn .3s linear";
-    imgContent.classList.add("display-flex");
-    clickOffPopupON();
-  }
-});
 
 //Sección que controla el popUp de los formularios
 function onForm() {
@@ -110,10 +68,6 @@ function onForm() {
   formProfile.style.animation = "popupOn .5s ease-in-out";
   container.classList.add("container_filter");
   clickOffPopupON();
-}
-
-function displayFlex() {
-  formProfile.classList.remove("display-flex");
 }
 
 //Función que cierra cualquier elemento del sitio web.
@@ -161,7 +115,13 @@ function editprofile(evt) {
 }
 
 // Eventos de click
-button.addEventListener("click", onForm);
+button.addEventListener("click", function() {
+  onForm();
+  const validate = new Validations(objValidation);
+  const dateValidate = validate._enableValidation();
+});
+
+
 btnAdd.addEventListener("click", newplace);
 btnClose.forEach((evt) => {
   formProfile.style.animation = "popupOff .5s linear";
@@ -199,3 +159,5 @@ function clickOffPopupOff() {
     evt.removeEventListener("click", clickContent);
   });
 }
+
+export {clickOffPopupON};

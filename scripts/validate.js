@@ -1,4 +1,4 @@
-export class Validations {
+ class Validations {
   constructor(objValidation){
     this._formSelector = objValidation.formSelector;
     this._inputSelector = objValidation.inputSelector;
@@ -73,3 +73,5 @@ export class Validations {
     errorElement.textContent = "";
   };
 }
+
+export { Validations };

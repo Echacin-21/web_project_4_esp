@@ -1,4 +1,4 @@
-import {clickOffPopupON} from "./index.js"
+import {clickOffPopupON} from "./utils.js"
 
 const elements = document.querySelector(".elements");
 const container = document.querySelector(".container");

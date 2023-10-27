@@ -1,4 +1,8 @@
-# Proyecto 5: Alrededor de los Estados Unidos
+# Proyecto 8: Alrededor de los Estados Unidos
+
+- Se implementan clases con control de validaciones a los form, los cuales no permitiran generar cartas o modificar los datos de usuario si los campos seleccionados no cumplen los requisitos. 
+- Se generan nuevos archivos Js, los cuales conversan entre sí mediante "export" e "import".
+
 
 ### Descripción general
 

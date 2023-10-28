@@ -1,6 +1,6 @@
 import { initialCards } from "./array.js";
 import { Card } from "./cards.js";
-import { Validations } from "./validate.js";
+import { formValidator } from "./validate.js";
 import { offForm, clickOffPopupON} from "./utils.js";  
 
 
@@ -34,7 +34,7 @@ initialCards.forEach((data) => {
 });
 
 function classValidation(objValidation) {
-  const validate = new Validations(objValidation);
+  const validate = new formValidator(objValidation);
   validate._enableValidation();
 }
 

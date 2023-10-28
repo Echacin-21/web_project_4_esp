@@ -1,4 +1,4 @@
- class Validations {
+ class formValidator {
   constructor(objValidation){
     this._formSelector = objValidation.formSelector;
     this._inputSelector = objValidation.inputSelector;
@@ -74,4 +74,4 @@
   };
 }
 
-export { Validations };
+export { formValidator };

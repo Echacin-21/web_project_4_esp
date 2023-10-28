@@ -1,6 +1,6 @@
 import { initialCards } from "./array.js";
-import { Card } from "./cards.js";
-import { formValidator } from "./validate.js";
+import { Card } from "./Card.js";
+import { formValidator } from "./FormValidator.js";
 import { offForm, clickOffPopupON} from "./utils.js";  
 
 
